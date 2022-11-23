@@ -1,0 +1,121 @@
+﻿.container {
+    margin-left: 10px;
+}
+
+nav{
+    margin-left: -10px;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #1e1e1e;
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+}
+
+.shift {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.shift div{
+    margin: 10px;
+}
+
+.shift input {
+    margin-left: 15px;
+    width: 200px;
+    height: 25px;
+    background-color: #575252;
+    color: white;
+    font-size: 15px;
+    border: 0px;
+    border-radius: 5px;
+    border-block-color: white;
+}
+
+.shift select {
+    height: 25px;
+    background-color: #575252;
+    color: white;
+    font-size: 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.shift .enter {
+    margin-left: 10%;
+    margin-top: 10px;
+    width: 120px;
+    height: 33px;
+    font-size: 20px;
+    background-color: #575252;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.shift .birthdate input{
+    width: 105px;
+    text-align:center;
+}
+
+.nav-item{
+    padding-right: 35px;
+}
+
+table {
+    border: 0px solid grey;
+    width: auto;
+}
+
+table select {
+    background-color: #464242;
+    color: #b5b5b5;
+}
+
+th {
+    text-align: center;
+    border: 0px solid grey;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+td {
+    border: 1px solid grey;
+    padding-left: 7px;
+    padding-right: 7px;
+    width:auto;
+}
+
+td input {
+    background-color: #575252;
+    color: white;
+}
+
+#tda {
+    width: 190px;
+    background-color: #1e1e1e;
+    border: 0px;
+}
+
+td input[type="text"] {
+    background-color: #1e1e1e;
+    color: white;
+    border: 0px solid;
+}
+
+td input[type="submit"] {
+    width: 170px;
+    font-size: 20px;
+    margin: 3px;
+}
+
+h1{
+    margin-bottom: 30px;
+    margin-left: 15px;
+}
+
+

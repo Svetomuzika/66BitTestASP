@@ -1,0 +1,59 @@
+﻿@using static _66BitTest.Models.Model
+@model FootballersViewModel
+
+<html>
+    <head>
+        <title>Create</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="src/styles.css" />
+        <script src="src/index.js"></script>
+    </head>
+
+    <body>
+        <h1>Добавить нового футболиста</h1>
+            <form name="shift" class="shift" asp-action="Create" asp-controller="Home">
+                <div>
+                    <label asp-for="Footballer.Name">Имя</label>
+                    <input type="text" asp-for="Footballer.Name" required="required"/>
+                </div>
+
+                <div>   
+                    <label asp-for="Footballer.Surname">Фамилия</label>
+                    <input type="text" asp-for="Footballer.Surname"/>
+                </div>
+
+                <div>
+                    <label asp-for="Footballer.Sex">Пол</label>
+                    <select asp-for="Footballer.Sex" asp-items="@Html.GetEnumSelectList<Gender>()"></select>
+                </div>
+
+                <div class="birthdate">
+                    <label asp-for="Footballer.Birthdate">Дата рождения</label>
+                    <input type="date" asp-for="Footballer.Birthdate"/>
+                </div>
+
+                <div>
+                    <label asp-for="Footballer.Team">Название команды</label>
+                    <input type="text" asp-for="Footballer.Team" list="teams"/>
+
+                    <datalist id="teams">
+                    @{
+                        foreach (var team in Model.Teams)
+                        {
+                            <option value="@team"></option>
+                        }
+                    }
+                    </datalist>
+                </div>
+                   
+                <div>
+                    <label asp-for="Footballer.Country">Страна</label>
+                    <select asp-for="Footballer.Country" asp-items="@new SelectList(Model.Countries)"></select>
+                </div>
+
+                <div>
+                    <input type="submit" value="Добавить" class="enter"/>
+                </div>
+            </form>
+    </body>
+</html>

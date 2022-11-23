@@ -1,0 +1,54 @@
+﻿@model FootballersViewModel
+
+<html>
+    <head>
+        <title>Footballers</title>
+        <meta charset="UTF-8" />
+    </head>
+
+    <body>
+        <h1>Все футболисты</h1>
+        <table>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Пол</th>
+                <th>Дата рождения</th>
+                <th>Команда</th>
+                <th>Страна</th>
+            </tr>
+            <form id="contentForm" asp-action="Edit" asp-controller="Home">
+                @{                      
+                    for(int i = 0; i < Model.Footballers.Count(); i++)
+                    {
+                        <input asp-for="Footballers[i].Id" type="hidden" value="@Model.Footballers[i].Id" readonly class="input"/>
+                        <tr class="content" id="content">
+                        
+                            <td><input asp-for="Footballers[i].Name" type="text" value="@Model.Footballers[i].Name" readonly class="input"/></td>
+                            <td><input asp-for="Footballers[i].Surname" type="text" value="@Model.Footballers[i].Surname" readonly class="input"/></td>
+                            <td><input asp-for="Footballers[i].Sex" type="text" value="@Model.Footballers[i].Sex" readonly class="input" id="tda"/></td>
+                            <td><input asp-for="Footballers[i].Birthdate" type="date" value="@Model.Footballers[i].Birthdate" readonly class="input" id="tda"/></td>
+                            <td><input asp-for="Footballers[i].Team" type="text" value="@Model.Footballers[i].Team" readonly class="input"/></td>
+                            <td>
+                            @{
+                                var countries = Model.Countries.Where(x => x != Model.Footballers[i].Country);
+
+                                <select onmousedown="return false" class="select" asp-for="Footballers[i].Country" asp-items="@(new SelectList(new string[] 
+                                { 
+                                    Model.Footballers[i].Country, 
+                                    countries.ElementAt(0), 
+                                    countries.ElementAt(1)
+                                }))"></select>
+                            }
+                            </td>
+                            <td>
+                                <input type="submit" asp-action="Edit" asp-controller="Home" class="editContent" value="Редактировать" asp-route-id="@Model.Footballers[i].Id"/> 
+                            </td>
+                        </tr>
+                    }
+                }
+            </form>
+        </table>
+        
+    </body>
+</html>
